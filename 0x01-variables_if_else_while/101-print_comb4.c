@@ -7,30 +7,33 @@
  */
 int main(void)
 {
-	int s = 0, e = 7, s2 = 1, e2 = 8, s3 = 2, e3 = 9;
+		int s = 0, e = 7, s2 = 1, e2 = 8, s3 = 2, e3 = 9;
 
-	while (s <= e)
-	{
-		s3 = s2 + 1;
-		while (s3 <= e3)
+		while (s <= e)
 		{
-			putchar(s + '0');
-			putchar(s2 + '0');
-			putchar(s3 + '0');
-
-			if (s != e)
+			s2 = s + 1;
+			while (s2 <= e2)
 			{
-				putchar('_');
-				putchar(' ');
-			}
-			s3++;
-		}
-		s2++;
-	}
-	s++;
-	
-	}
-	putchar('\n');
+				s3 = s2 + 1;
+				while (s3 <= e3)
+				{
+					putchar(s + '0');
+					putchar(s2 + '0');
+					putchar(s3 + '0');
 
-	return (0);
+					if (s != e)
+					{
+						putchar(',');
+						putchar(' ');
+					}
+					s3++;
+				}
+				s2++;
+			}
+			s++;
+		}
+		putchar('\n');
+
+		return (0);
 }
+
