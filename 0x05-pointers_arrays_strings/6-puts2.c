@@ -1,31 +1,23 @@
 #include "main.h"
-#include "2-strlen.c"
 
 /**
- * put2 - function declaration
- * @str: string pointer
- * Return: void
+ * puts2 - prints one char out of 2 of a string.
+ * @str: input string.
+ * Return: no return.
  */
-
-void puts2(char *str);
-
-/**
- * puts2 - function definition
- * Description: print if index divisible by 2
- * @str: string pointer
- * Return: void
- */
-
 void puts2(char *str)
 {
-	int index;
+	int count = 0;
 
-	for (index = 0; index < _strlen(str); index++)
+	while (count >= 0)
 	{
-		if (index % 2 == 0)
+		if (str[count] == '\0')
 		{
-			_putchar(str[index]);
+			_putchar('\n');
+			break;
 		}
+		if (count % 2 == 0)
+			_putchar(str[count]);
+		count++;
 	}
-	_putchar('\n');
 }
