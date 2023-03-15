@@ -34,14 +34,14 @@ char *str_concat(char *s1, char *s2)
 
 		 len = len1 + len2;
 		 result = (char *)malloc(sizeof(char) * (len + 1));
-		 if (result == NULL)
-			return (NULL);
+	if (result == NULL)
+		return (NULL);
 
-			for (i = 0; i < len1; i++)
-				       result[i] = s1[i];
-			for (j = 0; j < len2; j++, i++)
-				         result[i] = s2[j];
-			      result[len] = '\0';
+	for (i = 0; i < len1; i++)
+		result[i] = s1[i];
+	for (j = 0; j < len2; j++, i++)
+		result[i] = s2[j];
+	result[len] = '\0';
 
-			return (result);
+	return (result);
 }
