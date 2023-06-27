@@ -3,39 +3,39 @@
 #include <stdio.h>
 
 /**
- * alloc_grid - returns a pointerto 2Darray
- * @height: height input
- * @width: width input
- * Return: pointer to 2D array
+ * alloc_grid - returns a pointer to a 2 dimensional array of integers.
+ * @width: width of array
+ * @height: height of array
+ *
+ * Return: a pointer to a 2 dimensional array of integers.
  */
-int *alloc_grid(int width, int height)
+int **alloc_grid(int width, int height)
 {
-	int x, y;
-	int **yes;
+	int **array, i, j;
+	int len = width * height;
 
-	if (width <= 0 || height <= 0)
+	if (len <= 0)
 		return (NULL);
-	yes = malloc(sizeof(int) * height);
 
-	if (yes == NULL)
+	array = (int **)malloc(sizeof(int *) * height);
+	if (array == NULL)
 		return (NULL);
-	for (x = 0; x < height; x++)
+
+	for (i = 0; i < height; i++)
 	{
-		yes[x] = malloc(sizeof(int) * width);
-		if (yes[x] == NULL)
+		array[i] = (int *)malloc(sizeof(int) * width);
+		if (array[i] == NULL)
 		{
-			for (; x >= 0; x--)
-				free(yes[x]);
-			free(yes);
+			for (i--; i >= 0; i--)
+				free(array[i]);
+			free(array);
 			return (NULL);
 		}
 	}
-	for (x = 0; x < height; x++)
-	{
-		for (y = 0; y < width; y++)
-			yes[x][y] = 0;
-	}
 
-	return (yes);
+	for (i = 0; i < height; i++)
+	for (j = 0; j < width; j++)
+		array[i][j] = 0;
+
+	return (array);
 }
-
