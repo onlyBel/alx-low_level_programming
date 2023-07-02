@@ -8,12 +8,9 @@
  *
  * @len: length of the string
  *
- * @next: points to the next node
+ * next: points to the next node
  *
- *
- * Description: singly linked list node structure
- *
- * for Holberton project
+ * Description: singly linked list node structure for Holberton project
  *
  */
 typedef struct list_s
@@ -22,6 +19,7 @@ typedef struct list_s
 	unsigned int len;
 	struct list_s *next;
 } list_t;
+
 
 size_t print_list(const list_t *h);
 
