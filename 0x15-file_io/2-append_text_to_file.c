@@ -1,9 +1,9 @@
 #include "main.h"
 
 /**
- * append_text_to_file - append txt at the endof file
+ * append_text_to_file - append text at the endof file
  * @filename: filename
- * @text_content: text content
+ * @text_content: text content atthe end of file
  *
  * Return: 1 on success, -1 on failure
  */
