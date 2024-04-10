@@ -1,24 +1,25 @@
 #!/usr/bin/python3
-"""Module to define a function island_perimeter"""
-
+"""Module to calculate the perimeter of an island described in grid."""
 
 def island_perimeter(grid):
-    """Function to calculate an island described in a grid perimeter
-
-    grid is a list of list of integers:
-    0 represents a water zone
-    1 represents a land zone
-    One cell is a square with side length 1
+    """Returns the perimeter of the island described in grid.
+    0 represents waterzone and 1 land zone.
+    Attributes:
+        grid (list): A list of list of integers representing an island.
+    Returns:
+        Perimeter of the island described in grid.
     """
-    perimeter = 0
+    width = len(grid[0])
+    height = len(grid)
+    edges = 0
+    size = 0
 
-    for i in range(len(grid)):
-    for j in range(len(grid[0])):
-    if grid[i][j] == 1:
-        perimeter += 4
-    if i > 0 and grid[i - 1][j] == 1:
-        perimeter -= 2
-    if j > 0 and grid[i][j - 1] == 1:
-        perimeter -= 2
-
-    return perimeter
+    for h in range(height):
+        for w in range(width):
+            if grid[h][w] == 1:
+                size += 1
+                if (w > 0 and grid[h][w - 1] == 1):
+                    edges += 1
+                if (h > 0 and grid[h - 1][w] == 1):
+                    edges += 1
+    return size * 4 - edges * 2
